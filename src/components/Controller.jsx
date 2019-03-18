@@ -6,12 +6,12 @@ const Controller = (props) => {
         <Container className="controller">
             <Row>
                 <Col md={4}>
-                    <Button>
+                    <Button onClick={props.start}>
                         Play
                     </Button>
                 </Col>
                 <Col md={4}>
-                    <Button>
+                    <Button onClick={props.stop}>
                         Pause
                     </Button>
                 </Col>
