@@ -4,6 +4,7 @@ import Header from "./components/Header.jsx";
 import Timer from "./components/Timer.jsx";
 import Controller from "./components/Controller.jsx";
 import SetTimer from "./components/SetTimer.jsx";
+import BreakTimer from "./components/Break.jsx";
 
 class App extends Component {
   constructor(props){
@@ -12,12 +13,14 @@ class App extends Component {
       time: "00",
       seconds: "00",
       showModal: true,
+      break: 0
     }
     this.tick = this.tick.bind(this);
-    this.handleInput= this.handleInput.bind(this);
+    this.handleInput = this.handleInput.bind(this);
     this.startCountDown = this.startCountDown.bind(this);
     this.stopCountdown = this.stopCountdown.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.handleBreak = this.handleBreak.bind(this);
   }
   
 
@@ -47,6 +50,11 @@ class App extends Component {
 
       if (min === 0 & sec === 0) {
         clearInterval(this.intervalHandle);
+        if(this.state.break === 2) {
+          this.setState({
+            break: 0
+          })
+        }
       }
 
 
@@ -68,7 +76,13 @@ class App extends Component {
 
   closeModal() {
     this.setState({
-      showModal: false
+      showModal: false,
+    })
+  }
+
+  handleBreak() {
+    this.setState({
+      break: +1
     })
   }
 
@@ -77,7 +91,6 @@ class App extends Component {
         time: e.target.value,
         seconds: "00"
       })
-    
   }
 
   render() {
@@ -93,6 +106,9 @@ class App extends Component {
           </div>
         )  
         }
+        {this.state.break === 2 ?  (
+          <BreakTimer handleBreak={this.handleBreak} handleInput={this.handleInput}/>
+        ) : ""}
       </div>
     );
   }

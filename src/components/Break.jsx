@@ -1,20 +1,20 @@
 import React from "react";
 import { Modal, Button } from "react-bootstrap";
 
-const SetTimer = (props) => {
+const BreakTimer = (props) => {
   return (
     <div className="setTimer">
       <Modal show>
         <Modal.Header>
-          <Modal.Title>Set Intervals:</Modal.Title>
+          <Modal.Title>Break Time!</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            <h4>Working Intervals in Minutes:</h4>
-            <h5>(Traditional interval is 25 minutes)</h5>
+            <h4>How long of a break do you think you deserve?</h4>
+            <h5>(Traditional break is 5 minutes)</h5>
             <input onChange={props.handleInput} name="time"/>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" onClick={props.closeModal}>
+          <Button variant="primary" onClick={props.handleBreak}>
             Save
           </Button>
         </Modal.Footer>
@@ -23,4 +23,4 @@ const SetTimer = (props) => {
   );
 };
 
-export default SetTimer;
+export default BreakTimer;

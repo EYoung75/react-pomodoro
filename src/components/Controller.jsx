@@ -5,13 +5,13 @@ const Controller = (props) => {
     return (
         <Container className="controller">
             <Row>
-                <Col md={4}>
-                    <Button onClick={props.start}>
+                <Col>
+                    <Button onClick={props.start} className={"button"}>
                         Start
                     </Button>
                 </Col>
-                <Col md={4}>
-                    <Button onClick={props.stop}>
+                <Col>
+                    <Button onClick={props.stop} className={"button"}>
                         Reset
                     </Button>
                 </Col>
