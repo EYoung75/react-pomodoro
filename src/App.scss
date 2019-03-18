@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
+
+.App {
+  text-align: center;
+  margin: 0rem;
+  height: 100vh;
+  width: 100vw;
+  font-size: 16px;
+  font-family: "Source Sans Pro";
+
+  .header {
+    height: 75vh;
+    background-color: #DD1D24;
+    color: white;
+    padding-top: 1rem;
+  }
+
+  .timer {
+    position: relative;
+    bottom: 25rem;
+    background-color: white;
+    height: 40vh;
+    margin-left: 20%;
+    margin-right: 20%;
+    z-index: 1;
+    padding: 2rem;
+    border-radius: 1%;
+
+    .card {
+      height: 15rem;
+      background-color: #E9E3DC;
+    }
+
+    .separate {
+      font-size: 10rem;
+      color: black;
+    }
+  }
+
+  .controller {
+    width: 50%;
+    position: relative;
+    bottom: 20rem;
+    height: 5rem;
+    padding: 1rem;
+
+    .row {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
