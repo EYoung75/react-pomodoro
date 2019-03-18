@@ -27,9 +27,11 @@
     border-radius: 1%;
 
     .card {
+      display: flex;
+      flex-direction: column;
       height: 15rem;
       background-color: #E9E3DC;
-      font-size: 10rem;
+      font-size: 9rem;
     }
 
     .separate {

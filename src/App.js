@@ -6,15 +6,13 @@ import Controller from "./components/Controller.jsx";
 import SetTimer from "./components/SetTimer.jsx";
 
 class App extends Component {
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
     this.state = {
-      time: "25",
+      time: "00",
       seconds: "00",
-      stopped: false,
       showModal: true,
     }
-
     this.tick = this.tick.bind(this);
     this.handleInput= this.handleInput.bind(this);
     this.startCountDown = this.startCountDown.bind(this);
@@ -24,53 +22,47 @@ class App extends Component {
   
 
   tick() {
-    var min = Math.floor(this.secondsRemaining / 60);
-    var sec = this.secondsRemaining - (min * 60);
+      let min = Math.floor(this.secondsRemaining / 60);
+      let sec = this.secondsRemaining - (min * 60);
+      
 
-    this.setState({
-      time: min,
-      seconds: sec,
-    })
-
-    if (sec < 10) {
       this.setState({
-        seconds: "0" + this.state.seconds,
+        time: min,
+        seconds: sec,
       })
 
-    }
+      if (sec < 10) {
+        this.setState({
+          seconds: "0" + this.state.seconds,
+        })
+  
+      }
+  
+      if (min < 10) {
+        this.setState({
+          time: "0" + min,
+        })
+  
+      }
 
-    if (min < 10) {
-      this.setState({
-        time: "0" + min,
-      })
-
-    }
-
-    if (min === 0 & sec === 0) {
-      clearInterval(this.intervalHandle);
-    }
+      if (min === 0 & sec === 0) {
+        clearInterval(this.intervalHandle);
+      }
 
 
-    this.secondsRemaining--
+      this.secondsRemaining--
 
   }
 
   startCountDown() {
-    if(this.state.stopped === false) {
-    this.intervalHandle = setInterval(this.tick, 1000);
-    let time = this.state.time;
-    this.secondsRemaining = time * 60;
-    } else {
-
-    }
-  
-    
+      this.intervalHandle = setInterval(this.tick, 1000);
+      this.secondsRemaining = this.state.time * 60;       
   }
 
   stopCountdown() {
     clearInterval(this.intervalHandle)
     this.setState({
-      stopped: true
+      showModal: true
     })
   }
 
@@ -81,9 +73,11 @@ class App extends Component {
   }
 
   handleInput(e) {
-    this.setState({
-      time: e.target.value
-    })
+      this.setState({
+        time: e.target.value,
+        seconds: "00"
+      })
+    
   }
 
   render() {

@@ -6,7 +6,7 @@ const SetTimer = (props) => {
     <div className="setTimer">
       <Modal show>
         <Modal.Header>
-          <Modal.Title>Enter an Interval Length</Modal.Title>
+          <Modal.Title>Enter an Interval Length (In Minutes)</Modal.Title>
         </Modal.Header>
         <Modal.Body>
             <input onChange={props.handleInput}>
@@ -15,7 +15,7 @@ const SetTimer = (props) => {
         </Modal.Body>
         <Modal.Footer>
           <Button variant="primary" onClick={props.closeModal}>
-            Save Changes
+            Save
           </Button>
         </Modal.Footer>
       </Modal>

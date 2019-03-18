@@ -7,16 +7,11 @@ const Controller = (props) => {
             <Row>
                 <Col md={4}>
                     <Button onClick={props.start}>
-                        Play
+                        Start
                     </Button>
                 </Col>
                 <Col md={4}>
                     <Button onClick={props.stop}>
-                        Pause
-                    </Button>
-                </Col>
-                <Col md={4}>
-                    <Button>
                         Reset
                     </Button>
                 </Col>

@@ -8,13 +8,13 @@ const Timer = (props) => {
             <Container>
                 <Row className={"row"}>
                     <Col md={5} sm>
-                        <Card className={"card"}>{props.time}</Card>
+                        <Card className={"card"}><h1>Minutes</h1>{props.time}</Card>
                     </Col>
                     <Col md={2} sm className={"separate"}>
                         :
                     </Col>
                     <Col md={5} sm >
-                        <Card className={"card"}>{props.seconds}</Card>
+                        <Card className={"card"}><h1>Seconds</h1>{props.seconds}</Card>
                     </Col>
                 </Row>
             </Container>
