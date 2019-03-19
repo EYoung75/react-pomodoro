@@ -3,7 +3,7 @@ import { Modal, Button } from "react-bootstrap";
 
 const SetTimer = (props) => {
   return (
-    <div className="setTimer">
+    <div>
       <Modal show>
         <Modal.Header>
           <Modal.Title>Set Intervals:</Modal.Title>
