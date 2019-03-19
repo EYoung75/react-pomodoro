@@ -14,7 +14,7 @@ const BreakTimer = (props) => {
             <input onChange={props.handleInput} name="time"/>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" onClick={props.handleBreak}>
+          <Button variant="primary" onClick={props.closeModal}>
             Save
           </Button>
         </Modal.Footer>

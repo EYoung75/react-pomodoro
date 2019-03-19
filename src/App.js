@@ -12,15 +12,14 @@ class App extends Component {
     this.state = {
       time: "00",
       seconds: "00",
-      showModal: true,
-      break: 0
+      showModal: 0,
+      break: false
     }
     this.tick = this.tick.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.startCountDown = this.startCountDown.bind(this);
     this.stopCountdown = this.stopCountdown.bind(this);
     this.closeModal = this.closeModal.bind(this);
-    this.handleBreak = this.handleBreak.bind(this);
   }
   
 
@@ -50,9 +49,15 @@ class App extends Component {
 
       if (min === 0 & sec === 0) {
         clearInterval(this.intervalHandle);
-        if(this.state.break === 2) {
+        if(this.state.showModal === 1 && this.state.break === false) {
           this.setState({
-            break: 0
+            break: true,
+            showModal: 2
+          }) 
+        } else {
+          this.setState({
+            showModal: 0,
+            break: false
           })
         }
       }
@@ -76,13 +81,7 @@ class App extends Component {
 
   closeModal() {
     this.setState({
-      showModal: false,
-    })
-  }
-
-  handleBreak() {
-    this.setState({
-      break: +1
+      showModal: 1,
     })
   }
 
@@ -97,7 +96,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        {this.state.showModal === true ? ( 
+        {this.state.showModal === 0 ? ( 
           <SetTimer closeModal={this.closeModal} handleInput={this.handleInput}/>  
         ) : ( 
           <div>
@@ -106,8 +105,8 @@ class App extends Component {
           </div>
         )  
         }
-        {this.state.break === 2 ?  (
-          <BreakTimer handleBreak={this.handleBreak} handleInput={this.handleInput}/>
+        {this.state.showModal === 2 ?  (
+          <BreakTimer closeModal={this.closeModal} handleInput={this.handleInput}/>
         ) : ""}
       </div>
     );
