@@ -5,6 +5,9 @@ import Timer from "./components/Timer.jsx";
 import Controller from "./components/Controller.jsx";
 import SetTimer from "./components/SetTimer.jsx";
 import BreakTimer from "./components/Break.jsx";
+import Sound from "react-sound";
+import alarm from "./assets/Alarm.mp3";
+
 
 class App extends Component {
   constructor(props){
@@ -13,7 +16,8 @@ class App extends Component {
       time: "00",
       seconds: "00",
       showModal: 0,
-      break: false
+      break: false,
+      playing: false
     }
     this.tick = this.tick.bind(this);
     this.handleInput = this.handleInput.bind(this);
@@ -52,12 +56,14 @@ class App extends Component {
         if(this.state.showModal === 1 && this.state.break === false) {
           this.setState({
             break: true,
-            showModal: 2
+            showModal: 2,
+            playing: true
           }) 
         } else {
           this.setState({
             showModal: 0,
-            break: false
+            break: false,
+            playing: true
           })
         }
       }
@@ -75,7 +81,7 @@ class App extends Component {
   stopCountdown() {
     clearInterval(this.intervalHandle)
     this.setState({
-      showModal: true
+      showModal: 0
     })
   }
 
@@ -98,16 +104,22 @@ class App extends Component {
         <Header />
         {this.state.showModal === 0 ? ( 
           <SetTimer closeModal={this.closeModal} handleInput={this.handleInput}/>  
-        ) : ( 
+        ) : "" }
           <div>
             <Timer {...this.state}/>
             <Controller start={this.startCountDown} stop={this.stopCountdown}/>
           </div>
-        )  
-        }
+         
+        
         {this.state.showModal === 2 ?  (
           <BreakTimer closeModal={this.closeModal} handleInput={this.handleInput}/>
         ) : ""}
+          <Sound
+              url={alarm}
+              playing={this.state.playing === true ? Sound.status.PLAYING : Sound.status.STOPPED}
+              volume="100"
+              autoLoad={true}
+          />
       </div>
     );
   }
