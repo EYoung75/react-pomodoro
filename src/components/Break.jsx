@@ -1,5 +1,5 @@
-import React from "react";
-import { Modal, Button } from "react-bootstrap";
+import React from "react"
+import { Modal, Button } from "react-bootstrap"
 
 const BreakTimer = (props) => {
   return (
@@ -20,7 +20,7 @@ const BreakTimer = (props) => {
         </Modal.Footer>
       </Modal>
     </div>
-  );
-};
+  )
+}
 
-export default BreakTimer;
+export default BreakTimer

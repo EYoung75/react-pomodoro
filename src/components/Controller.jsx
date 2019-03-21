@@ -1,5 +1,5 @@
-import React from "react";
-import { Container, Col, Row, Button } from "react-bootstrap";
+import React from "react"
+import { Container, Col, Row, Button } from "react-bootstrap"
 
 const Controller = (props) => {
     return (
@@ -20,4 +20,4 @@ const Controller = (props) => {
     )
 }
 
-export default Controller;
+export default Controller

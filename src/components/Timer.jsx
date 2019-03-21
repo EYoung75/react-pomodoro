@@ -1,5 +1,5 @@
-import React from "react";
-import { Container, Row, Col, Card } from "react-bootstrap";
+import React from "react"
+import { Container, Row, Col, Card } from "react-bootstrap"
 
 
 const Timer = (props) => {
@@ -22,4 +22,4 @@ const Timer = (props) => {
     )
 }
 
-export default Timer;
+export default Timer
